@@ -26,7 +26,7 @@
             // a one-hot encoded array of label values like we did in the
             // Iris dataset example. 
             const convertedTrainingData = 
-                trainingData.map(({xs. ys}) =>{
+                trainingData.map(({xs, ys}) =>{
                 const labels = [
                     ys.diagnosis ? 1:0,]
                 return{ xs: Object.values(xs), ys:Object.values(labels)};
@@ -56,8 +56,8 @@
             // a one-hot encoded array of label values like we did in the
             // Iris dataset example. 
             const convertedTestingData = 
-                testingData.map(({xs.ys}) =>{
-                const labels = [
+                testingData.map(({xs, ys}) =>{
+                const labels = 
                     ys.diagnosis ? 1:0,]
                 return{xs:Object.values(xs),ys:Object.values(labels)};
             }).batch(10);
