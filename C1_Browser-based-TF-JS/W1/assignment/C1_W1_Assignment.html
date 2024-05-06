@@ -25,9 +25,8 @@
             // Iris dataset example. 
             const convertedTrainingData = 
                 trainingData.map(({xs, ys}) =>{
-                const labels = [
-                    ys.diagnosis ? 1:0
-                ];
+                const labels = ys.diagnosis ? 1:0;
+            
                 return { xs: Object.values(xs), ys: Object.values(labels)};
             }).batch(10);
             
@@ -73,10 +72,10 @@
             const model = tf.sequential();
             model.add(tf.layers.dense({
                 inputShape: [numOfFeatures],
-                activation: "sigmoid", units: 10
+                activation: "relu", units: 8
             }));
             model.add(tf.layers.dense({
-                activation: "relu", units: 10
+                activation: "relu", units: 16
             }));
             model.add(tf.layers.dense({
                 activation: "sigmoid", units: 1
