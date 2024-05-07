@@ -25,7 +25,7 @@
             // Iris dataset example. 
             const convertedTrainingData = 
                 trainingData.map(({xs, ys}) =>{
-                const labels = ys.diagnosis ? 1:0;
+               
             
                 return { xs: Object.values(xs), ys: Object.values(labels)};
             }).batch(10);
@@ -51,7 +51,7 @@
             // Iris dataset example. 
             const convertedTestingData = 
                 testingData.map(({xs, ys}) =>{
-                const labels = ys.diagnosis ? 1 : 0;
+               
                 return {xs: Object.values(xs), ys: Object.values(labels)};
             }).batch(10);
                   
@@ -76,6 +76,9 @@
             }));
             model.add(tf.layers.dense({
                 activation: "relu", units: 16
+            }));
+             model.add(tf.layers.dense({
+                activation: "relu", units: 32
             }));
             model.add(tf.layers.dense({
                 activation: "sigmoid", units: 1
